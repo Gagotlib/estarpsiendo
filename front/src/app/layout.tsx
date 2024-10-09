@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Estarpsiendo",
-  description: "web aplication dedicated to mental health",
+  description: "web application dedicated to mental health",
 };
 
 export default function RootLayout({
