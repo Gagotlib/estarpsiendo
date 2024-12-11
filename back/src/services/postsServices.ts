@@ -10,7 +10,7 @@ export const getAllPostsService = async (): Promise<Post[]> => {
 	return allPosts
 }
 
-export const createPostService = async ({ title, text }: postDto): Promise<Post> => {
-	const newPost = PostRepository.create({ title, text })
+export const createPostService = async ({ title, text, img, subtitle }: postDto): Promise<Post> => {
+	const newPost = PostRepository.create({ title, text, img, subtitle })
 	return await PostRepository.save(newPost)
 }

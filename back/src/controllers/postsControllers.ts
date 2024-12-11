@@ -15,8 +15,8 @@ export const getAllPostsController = async (req: Request, res: Response): Promis
 }
 export const getPostByIdController = async (req: Request, res: Response): Promise<void> => {}
 export const createPostController = async (req: Request, res: Response): Promise<void> => {
-	const { title, text } = req.body
-	const postDto = { title, text }
+	const { title, text, img, subtitle } = req.body
+	const postDto = { title, text, img, subtitle }
 	try {
 		const newPost = await createPostService(postDto)
 		res.status(201).json(newPost)

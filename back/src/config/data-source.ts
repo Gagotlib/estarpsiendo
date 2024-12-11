@@ -12,7 +12,7 @@ export const AppDataSource = new DataSource({
 	username: 'postgres',
 	password: DB_PASSWORD,
 	database: 'estarpsiendo',
-	// dropSchema: true, //reinica la bd al arrancar el servidor.
+	dropSchema: true, //reinica la bd al arrancar el servidor.
 	synchronize: true,
 	logging: false,
 	entities: [User, Credential, Appointment, Post],

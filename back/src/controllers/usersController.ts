@@ -26,8 +26,7 @@ export const getUserByIdController = async (req: Request, res: Response): Promis
       id: foundUser.id,
       name: foundUser.name,
       email: foundUser.email,
-      birthdate: foundUser.birthdate,
-      nDni: foundUser.nDni,
+      role: foundUser.role,
       appointments: foundUser.appointments,
     }
     res.status(200).json(user)
@@ -39,8 +38,8 @@ export const getUserByIdController = async (req: Request, res: Response): Promis
 }
 
 export const createUserController = async (req: Request, res: Response): Promise<void> => {
-  const { name, email, birthdate, nDni, username, password } = req.body
-  const userDto: IuserDto = { name, email, birthdate, nDni, username, password }
+  const { name, email, username, password , role} = req.body
+  const userDto: IuserDto = { name, email, username, password, role }
   try {
     const newUser: User = await createUserService(userDto)
     res.status(201).json(newUser)
@@ -52,8 +51,8 @@ export const createUserController = async (req: Request, res: Response): Promise
 }
 
 export const loginUserController = async (req: Request, res: Response): Promise<void> => {
-  const { username, password } = req.body
-  const credentialsDto: ICredentialDto = { username, password }
+  const { email, password } = req.body
+  const credentialsDto: ICredentialDto = { email, password }
   try {
     // me fijo que las credenciales sean validas
     const credentialsId = await validateCredentials(credentialsDto)
@@ -67,8 +66,7 @@ export const loginUserController = async (req: Request, res: Response): Promise<
           id: foundUser.id,
           name: foundUser.name,
           email: foundUser.email,
-          birthdate: foundUser.birthdate,
-          nDni: foundUser.nDni,
+          role: foundUser.role,
         },
       })
     }

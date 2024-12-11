@@ -31,30 +31,26 @@ export const getUserByIdService = async (id: number): Promise<User> => {
 
 // Implementar una función que pueda crear un nuevo usuario dentro del arreglo PERO ten en cuenta que al momento de crear el usuario, debe crear su correspondiente par de credenciales llamando a la función correspondiente del servicio de credenciales. Al recibir de esta función el id de las credenciales, debe guardar el dato en la propiedad credentialsId.
 export const createUserService = async (userDto: IuserDto): Promise<User> => {
-  const { name, email, birthdate, nDni, username, password } = userDto
+  const { name, email, username, password, role} = userDto
 
   const queryRunner = AppDataSource.createQueryRunner()
   await queryRunner.connect()
   try {
     await queryRunner.startTransaction()
     //compruebo si el usuario ya existe, ya que no quiero dos usuarios con el mismo username
-    const usernameExist = await CredentialRepository.findOne({ where: { username } })
+    const usernameExist = await CredentialRepository.findOne({ where: { email } })
     if (usernameExist) {
       throw new Error("Ya existe un usuario con el mismo nombre de usuario")
-    }
-    const usernDniExist = await UserRepository.findOne({ where: { nDni } })
-    if (usernDniExist) {
-      throw new Error("Ya existe un usuario con el mismo nDni")
     }
     const userEmailExist = await UserRepository.findOne({ where: { email } })
     if (userEmailExist) {
       throw new Error("Ya existe un usuario con el mismo email")
     }
     //creo  las credenciales
-    const credentialsDto: ICredentialDto = { username, password }
+    const credentialsDto: ICredentialDto = { email, password }
     const credentialsId = await createCredentialsService(credentialsDto)
     // Creo el registro de usuario
-    const newUser: User = UserRepository.create({ name, email, birthdate, nDni, credentialsId })
+    const newUser: User = UserRepository.create({ name, email, credentialsId, role })
     // guarda el registro
     await queryRunner.manager.save(newUser)
     await queryRunner.commitTransaction()

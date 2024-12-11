@@ -11,6 +11,9 @@ export class Post {
 	title: string
 
 	@Column()
+	subtitle: string
+
+	@Column()
 	text: string
 
 	@Column({ nullable: true })
