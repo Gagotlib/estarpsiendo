@@ -4,3 +4,10 @@ export interface postDto {
 	img?: string 
 	subtitle: string
 }
+
+export interface UpdatePostDto {
+	title?: string 
+	text?: string
+	img?: string
+	subtitle?: string
+}
