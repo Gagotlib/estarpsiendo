@@ -11,18 +11,19 @@ export interface DataType {
 	img: string
 }
 
-const PostPage = async ({ params }: { params: { id: string } }) => {
-	const res = await axios.get(`${API_URL}/posts/${params.id}`)
-	console.log(res.status)
+const PostPage = async (props: { params: Promise<{ id: string }> }) => {
+    const params = await props.params;
+    const res = await axios.get(`${API_URL}/posts/${params.id}`)
+    console.log(res.status)
 
-	if (res.status !== 200) {
+    if (res.status !== 200) {
 		return <div>Error: No se pudo cargar el post.</div>
 	}
 
-	const post: DataType = res.data
-	console.log(post)
+    const post: DataType = res.data
+    console.log(post)
 
-	return (
+    return (
 		<div className='page-container'>
 			<h1 className='title'>{post.title}</h1>
 			<h2 className='subtitle'>{post.subtitle}</h2>

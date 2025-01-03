@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-	--background: #f2f2f2;
+	--background: #ece9e9;
 	--foreground: #171717;
 	--primary: #0ca826;
-	--secondary: #800dad;
+	--secondary: #a855f7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,8 +24,9 @@ body {
 
 /* clases personalizadas */
 
+
 .page-container {
-	@apply w-full min-h-screen bg-background flex flex-col items-center py-8;
+	@apply w-full min-h-screen bg-background flex flex-col items-center pt-16 md:pt-40 pb-8 px-0 md:px-8 gap-4;
 }
 
 .title {
@@ -47,7 +48,7 @@ body {
 }
 
 .post-container {
-	@apply flex flex-col gap-4 px-4 py-8 overflow-hidden max-w-screen-lg;
+	@apply flex flex-col gap-4 px-4 py-4 overflow-hidden max-w-screen-lg;
 }
 
 .post {
