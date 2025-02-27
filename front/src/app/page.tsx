@@ -4,7 +4,7 @@ import Intro from "@/components/intro/Intro"
 
 export default async function Home() {
 	return <div className='page-container'>
-		<Intro/>
+		<Intro />
 		<LastPosts />
-		</div>
+	</div>
 }
