@@ -3,118 +3,119 @@
 @tailwind utilities;
 
 :root {
-	--background: #ece9e9;
-	--foreground: #171717;
-	--primary: #0ca826;
-	--secondary: #a855f7;
+  --background: #ece9e9;
+  --foreground: #171717;
+  --primary: #0ca826;
+  --secondary: #8ba4b3;
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--background: #1a1a1a;
-		--foreground: #ededed;
-	}
+  :root {
+    --background: #1a1a1a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-	color: var(--foreground);
-	background: var(--background);
-	font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* clases personalizadas */
 
-
 .page-container {
-	@apply w-full min-h-screen bg-background flex flex-col items-center pt-16 md:pt-40 pb-8 px-0 md:px-8 gap-4;
+  @apply w-full min-h-screen bg-background flex flex-col items-center pt-16 md:pt-40 pb-8 px-0 md:px-8 gap-4;
 }
 
 .title {
-	@apply text-4xl font-bold text-center;
+  @apply text-4xl font-bold text-center;
 }
 .subtitle {
-	@apply text-2xl font-bold text-center;
+  @apply text-2xl font-bold text-center;
 }
 .text {
-	@apply text-base font-light px-8;
+  @apply text-base font-light px-8;
 }
 
 .btn-primary {
-	@apply px-4 py-2 rounded-md text-white bg-primary;
+  @apply px-4 py-2 rounded-md text-white bg-primary;
 }
 
 .btn-secondary {
-	@apply px-4 py-2 rounded-md text-white bg-secondary-100;
+  @apply px-4 py-2 rounded-md text-white bg-secondary-100;
 }
 
 .post-container {
-	@apply flex flex-col gap-4 px-4 py-4 overflow-hidden max-w-screen-lg;
+  @apply flex flex-col gap-4 px-4 py-4 overflow-hidden max-w-screen-lg;
 }
 
 .post {
-	@apply flex p-0 bg-white shadow-md rounded-lg max-w-screen-md hover:cursor-pointer;
-	overflow: hidden; /* Necesario para cortar contenido durante la transición */
-	transition: height 0.3s ease;
+  @apply flex p-0 bg-white shadow-md rounded-lg max-w-screen-md hover:cursor-pointer;
+  overflow: hidden; /* Necesario para cortar contenido durante la transición */
+  transition: height 0.3s ease;
 }
 
 .post-collapsed {
-	height: 16rem; /* Altura colapsada */
+  height: 16rem; /* Altura colapsada */
 }
 
 .post-expanded {
-	height: 54rem; /* Altura máxima arbitraria para contenido expandido */
+  height: 54rem; /* Altura máxima arbitraria para contenido expandido */
 }
 .post-title {
-	@apply text-2xl font-bold;
+  @apply text-2xl font-bold;
 }
 .post-subtitle {
-	@apply text-xl font-light;
+  @apply text-xl font-light;
 }
 .post-text {
-	display: -webkit-box; /* Configuración para soportar truncamiento en varias líneas */
-	-webkit-line-clamp: 1; /* Número máximo de líneas antes del truncamiento */
-	-webkit-box-orient: vertical; /* Orientación del truncamiento */
-	overflow: hidden; /* Esconde el contenido desbordado */
-	text-overflow: ellipsis; /* Añade los puntos suspensivos (...) */
-	line-height: 1.5rem; /* Asegura una altura de línea uniforme */
-	max-height: calc(1.5rem * 3); /* Altura máxima calculada según el número de líneas */
+  display: -webkit-box; /* Configuración para soportar truncamiento en varias líneas */
+  -webkit-line-clamp: 1; /* Número máximo de líneas antes del truncamiento */
+  -webkit-box-orient: vertical; /* Orientación del truncamiento */
+  overflow: hidden; /* Esconde el contenido desbordado */
+  text-overflow: ellipsis; /* Añade los puntos suspensivos (...) */
+  line-height: 1.5rem; /* Asegura una altura de línea uniforme */
+  max-height: calc(
+    1.5rem * 3
+  ); /* Altura máxima calculada según el número de líneas */
 }
 
 .post-expanded .post-text {
-	-webkit-line-clamp: unset; /* Elimina el truncamiento */
-	max-height: none; /* Elimina la restricción de altura */
-	overflow: visible; /* Hace que el texto sea visible completamente */
+  -webkit-line-clamp: unset; /* Elimina el truncamiento */
+  max-height: none; /* Elimina la restricción de altura */
+  overflow: visible; /* Hace que el texto sea visible completamente */
 }
 
 .image-rounded-right {
-	border-top-right-radius: 0.5rem; /* Ajusta el valor según el radio que desees */
-	border-bottom-right-radius: 0.5rem; /* Ajusta el valor según el radio que desees */
-	object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
-	width: 100%; /* Garantiza que la imagen ocupe todo el ancho disponible */
-	/* max-height: 100%; Impide que la imagen se agrande más allá de su tamaño original */
+  border-top-right-radius: 0.5rem; /* Ajusta el valor según el radio que desees */
+  border-bottom-right-radius: 0.5rem; /* Ajusta el valor según el radio que desees */
+  object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+  width: 100%; /* Garantiza que la imagen ocupe todo el ancho disponible */
+  /* max-height: 100%; Impide que la imagen se agrande más allá de su tamaño original */
 }
 
 .image-background {
-	background-size: cover; /* Asegura que la imagen cubra el área del div */
-	background-position: center; /* Centra la imagen */
-	background-repeat: no-repeat; /* Evita que la imagen se repita */
-	width: 40%; /* Ancho del contenedor */
-	height: 100%; /* Ajusta la altura para que se vea bien */
-	border-top-right-radius: 0.5rem; /* Ajusta el borde */
-	border-bottom-right-radius: 0.5rem; /* Ajusta el borde */
+  background-size: cover; /* Asegura que la imagen cubra el área del div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  width: 40%; /* Ancho del contenedor */
+  height: 100%; /* Ajusta la altura para que se vea bien */
+  border-top-right-radius: 0.5rem; /* Ajusta el borde */
+  border-bottom-right-radius: 0.5rem; /* Ajusta el borde */
 }
 
 .line-clamp-none {
-	display: block;
-	-webkit-line-clamp: unset; /* Elimina el truncamiento */
-	max-height: none;
+  display: block;
+  -webkit-line-clamp: unset; /* Elimina el truncamiento */
+  max-height: none;
 }
 .max-h-auto {
-	max-height: none;
+  max-height: none;
 }
 
 @layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+  .text-balance {
+    text-wrap: balance;
+  }
 }

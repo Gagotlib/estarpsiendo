@@ -3,28 +3,29 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import MenuIcon from '../icons/MenuIcon'
-import { Inter } from '@next/font/google' // Importa la fuente
-
-const geistSans = Inter({
-	subsets: ['latin'],
-	variable: '--font-geist-sans'
-})
 
 
 const links = [
 	{ id: 2, text: 'Sobre mi', url: '/about' },
-	{ id: 3, text: 'Mis servicios', url: '/services' },
-	{ id: 4, text: 'Contacto', url: '/contact' }
+	{ id: 3, text: 'Blog', url: '/post' }, //Aqui la idea es que exista un blog para que se vean todas las postulaciones creadas
+	{ id: 4, text: 'Mis servicios', url: '/services' },
+	{ id: 5, text: 'Contacto', url: '/contact' }
 ]
 
 export default function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
 	return (
-		<header className={`h-20 md:h-40 w-full flex bg-[var(--secondary)] text-white text-center fixed z-50 `}>
+		<header className={`h-20 md:h-24 w-full flex bg-[var(--secondary)] text-white text-center fixed z-50 `}>
 			<nav className='flex justify-between items-center w-full px-4'>
-				<Link href='/' className={`${geistSans.variable}`}>
-					<Image src='/images/Estarpsiendo-2.png' alt='Estarpsiendo logo' width={200} height={200} onClick={() => setIsMenuOpen(false)} />
+				<Link href='/'>
+					<Image
+						src='/images/Estarpsiendo-2.png'
+						alt='Estarpsiendo logo'
+						width={200}
+						height={200}
+						priority={true}
+						onClick={() => setIsMenuOpen(false)} />
 				</Link>
 
 				<div className='hidden md:flex items-center gap-4'>
@@ -32,8 +33,8 @@ export default function Header() {
 						{links.map((link) => {
 							const { id, text, url } = link
 							return (
-								<li key={id} className='text-xl hover:text-slate-500'>
-									<Link href={url} onClick={() => setIsMenuOpen(false)} className={`${geistSans.variable}`}>
+								<li key={id} className='text-xl hover:text-slate-900'>
+									<Link href={url} onClick={() => setIsMenuOpen(false)} >
 										{text}
 									</Link>
 								</li>
@@ -46,13 +47,13 @@ export default function Header() {
 					<MenuIcon />
 				</button>
 				{/* Menu */}
-				<div className={`absolute right-0 top-20 w-full bg-[var(--secondary)] text-white rounded shadow-lg z-50 transform transition-all duration-300 overflow-hidden ${isMenuOpen ? 'h-36' : 'h-0'}`}>
+				<div className={`absolute right-0 top-20 w-full bg-[var(--secondary)] text-white rounded shadow-lg z-50 transform transition-all duration-300 overflow-hidden ${isMenuOpen ? 'h-auto' : 'h-0'}`}>
 					<ul className='flex flex-col gap-4 p-4'>
 						{links.map((link) => {
 							const { id, text, url } = link
 							return (
 								<li key={id}>
-									<Link href={url} onClick={() => setIsMenuOpen(false)} className={`${geistSans.variable}`}>
+									<Link href={url} onClick={() => setIsMenuOpen(false)} >
 										{text}
 									</Link>
 								</li>
