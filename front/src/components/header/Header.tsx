@@ -6,9 +6,9 @@ import MenuIcon from '../icons/MenuIcon'
 
 
 const links = [
-	{ id: 2, text: 'Sobre mi', url: '/about' },
+	{ id: 2, text: 'Conóceme', url: '/about' },
 	{ id: 3, text: 'Blog', url: '/post' }, //Aqui la idea es que exista un blog para que se vean todas las postulaciones creadas
-	{ id: 4, text: 'Mis servicios', url: '/services' },
+	{ id: 4, text: 'Servicios', url: '/services' },
 	{ id: 5, text: 'Contacto', url: '/contact' }
 ]
 
