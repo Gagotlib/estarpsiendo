@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import Header from '@/components/header/Header'
+import { Inter } from '@next/font/google'
+import Footer from '@/components/footer/Footer'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -14,6 +16,10 @@ const geistMono = localFont({
 	weight: '100 900'
 })
 
+const inter = Inter({
+	subsets: ['latin'],
+	variable: '--font-inter'
+})
 
 
 export const metadata: Metadata = {
@@ -28,9 +34,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='es'>
-			<body className={`${geistSans.variable} ${geistMono.variable}  antialiased`}>
+			<body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable}  antialiased`}>
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	)
