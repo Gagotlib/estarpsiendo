@@ -1,7 +1,7 @@
 'use client'
 import { useFetchData } from '@/hooks/useFetchData'
 import React, { useState } from 'react'
-import { DataType } from '../interfaces/interfaces'
+import { DataType } from '../../interfaces/interfaces'
 import { API_URL } from '@/config/envs'
 import Spiner from '@/components/Spiner'
 

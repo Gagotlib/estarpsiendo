@@ -1,4 +1,4 @@
-import { DataType } from '@/app/interfaces/interfaces'
+import { DataType } from '@/interfaces/interfaces'
 import { API_URL } from '@/config/envs'
 import { fetchData } from '@/services/fetchData'
 import React from 'react'
@@ -9,7 +9,6 @@ const ubuntu = Ubuntu({
 	weight: ['400', '500', '700'],
 	subsets: ['latin']
 })
-
 
 export default async function LastPosts() {
 	let posts: DataType[] = []
